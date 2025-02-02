@@ -190,6 +190,7 @@ export const data = [
     { url: 'https://librarius.md', label: 0 },
     { url: 'https://kmsub.world', label: 1 },
     { url: 'https://glitter-melody-winter.pw/countin.nulled', label: 1 },
+    { url: 'https://oxford.oxfordlearnersdictionaries.makeup/goway-typer-mix', label: 1 },
 ];
   
 export const suspiciousSubstrings = [
@@ -198,5 +199,5 @@ export const suspiciousSubstrings = [
     'logln', 'gogle', 'g00gle', 'go0gle', 'g0ogle', 'googl', 'clasroom', 'classrom', 'clasrom',
     'acount', 'acc0unt', 'accounl', 'trycloudflare', 'loclx', 'localhost', 'gethub', 'githab',
     'gethab', 'netflux', 'netflex', 'c0de', 'kmsub', 'k0mmunity', 'deweloper', 'sp0tify',
-    'spotlfy', '.pw'
+    'spotlfy', '.pw', '.makeup'
 ];
