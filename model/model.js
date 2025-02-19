@@ -1,6 +1,7 @@
 import { data, suspiciousSubstrings } from "./data.js"
 
 function urlToFeatures(url) {
+    const dotCount = (url.match(/\./g) || []).length; // Количество точек
     const domain = url.replace(/^https?:\/\//, '').split('/')[0]; // Доменное имя
     const domainDashCount = (domain.match(/-/g) || []).length; // Количество дефисов в доменном имени
     const domainLength = url.replace(/^https?:\/\//, '').split('/')[0].length; // Длина доменного имени
@@ -10,14 +11,14 @@ function urlToFeatures(url) {
     const hasSuspiciousSubstring = suspiciousSubstrings.some(substring => url.includes(substring)) ? 1 : 0; 
     // наличие подстроки из массива suspiciousSubstrings
   
-    return [domainDashCount, domainLength, lettersToDigitsRatio, hasSuspiciousSubstring];
+    return [dotCount, domainDashCount, domainLength, lettersToDigitsRatio, hasSuspiciousSubstring];
 }
 
 const TENSOR_1 = tf.tensor2d(data.map(d => urlToFeatures(d.url))); 
 const TENSOR_2 = tf.tensor2d(data.map(d => [d.label])); 
   
 const model = tf.sequential();
-model.add(tf.layers.dense({ units: 10, activation: 'relu', inputShape: [4] })); 
+model.add(tf.layers.dense({ units: 10, activation: 'relu', inputShape: [5] })); 
 model.add(tf.layers.dense({ units: 1, activation: 'sigmoid' })); 
 
 model.compile({
