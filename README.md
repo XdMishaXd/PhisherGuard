@@ -1,2 +1,2 @@
 # PhisherGuard
-Запускать только через Live Server
+Для открытия нужно установить расширение Live Server в VSCode.
